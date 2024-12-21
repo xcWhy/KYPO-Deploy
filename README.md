@@ -21,7 +21,7 @@ sudo su - stack
 sudo apt -y install git
 git clone https://git.openstack.org/openstack-dev/devstack
 
-git clone <this repo>
+git clone https://github.com/xcWhy/KYPO-Deploy.git
 
 cd devstack
 

@@ -64,4 +64,40 @@ then we can check if everything is functional:
 ```openstack orchestration service list```
 - if we don't get an error and a box of services shows up, everything is fine.
 
+**Im starting to use this source:** https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-crp-tf-deployment#preparing-the-deployment-environment
+
+then we obtain application-credentials!
+- we need them to be unrestricted
+- i will give them all of the rules - admin, uesr, etc
+
+we install Terraform:
+`snap install terraform --classic`
+
+we clone the deployment remo:
+`git clone https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-crp-tf-deployment.git`
+
+then we go onto the "Deployment of OpenStack base resources"
+https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-crp-tf-deployment/-/blob/master/BASE.md
+
+since we have sourced the admin rc file before in the currect shell, I will write this command so they dont overlap: `unset "${!OS_@}"`
+
+then we source the application credentials
+
+then we go to:
+`cd tf-openstack-base`
+
+in my case the output will be public:
+`openstack network list --external --column Name`
+
+Create **deployment.tfvars** from template deployment.tfvars-template:
+`cp tfvars/deployment.tfvars-template tfvars/deployment.tfvars`
+and setup external_network_name variable:
+- external_network_name = "openstack_external_network"
+
+`terraform init`
+
+then I will try this command.. 
+`terraform apply -var-file tfvars/deployment.tfvars -var-file tfvars/vars-all.tfvars`
+
+here is where i get stuck.. the instances seem to not get created properly...
 

@@ -45,6 +45,8 @@ Now starts the hard part... the openstack depoloyment...
 
 Firstly we should download the **ADMIN** openrc file from the dashboard - which means we need to switch to the admin project firstly...
 
+`sudo cp /home/eli/Downloads/admin-openrc.sh admin-openrc.sh`
+
 we need to source this file in the directory so in our case we need to copy the contents from the admin rd file to a file that we will create in the directory.
 Additionally we can comment the parts where it will prompt us for a password, so it doesn't require it all the time, like this:
 

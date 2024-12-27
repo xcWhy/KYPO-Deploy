@@ -214,13 +214,17 @@ cd tf-openstack-base
 
 Now we need to create an external network:
 
+External network named public:
 ```
 openstack network create \
   --provider-network-type flat \
-  --provider-physical-network physnet1 \ #the physcial external link - we can check it through neutron ml2.ini file  
+  --provider-physical-network physnet1 \
   --external \
   public
+```
 
+Subnet associated with the external network:
+```
 openstack subnet create \
   --network public \
   --subnet-range 192.168.10.0/24 \

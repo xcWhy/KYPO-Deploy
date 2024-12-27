@@ -230,4 +230,31 @@ openstack subnet create \
   public-subnet
 ```
 
+Flavors creation
+
+my.large
+```
+openstack flavor create \
+  --id auto \
+  --ram 16384 \
+  --disk 80 \
+  --vcpus 4 \
+  my.large
+```
+
+my.medium
+```
+openstack flavor create \
+  --id auto \
+  --ram 4096 \
+  --disk 20 \
+  --vcpus 2 \
+  my.medium
+```
+
+delete kali image
+
+/tf-openstack-base/.terraform/modules/images/images.tf
+
+
 

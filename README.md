@@ -235,7 +235,7 @@ Flavors creation
 my.large
 ```
 openstack flavor create \
-  --id auto \
+  --id 1 \
   --ram 16384 \
   --disk 80 \
   --vcpus 4 \
@@ -245,7 +245,7 @@ openstack flavor create \
 my.medium
 ```
 openstack flavor create \
-  --id auto \
+  --id 2 \
   --ram 4096 \
   --disk 20 \
   --vcpus 2 \
